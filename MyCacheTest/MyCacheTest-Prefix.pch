@@ -13,4 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+    #define HostName @"weather.com.cn"
+    #define URL_test @"http://www.weather.com.cn/data/sk/101010100.html"
 #endif

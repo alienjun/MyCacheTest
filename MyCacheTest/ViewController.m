@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ServerAPI.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [[ServerAPI sharedInstance] httpGet:URL_test refreshCached:NO complete:^(NSData *data, NSError *error, MyCacheType cacheType, BOOL finished, NSString *url) {
+        if (finished) {
+            NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"data:%@",str);
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
